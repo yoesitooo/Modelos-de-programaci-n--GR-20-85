@@ -3,6 +3,7 @@ classDiagram
 class Grupo {
     -nombre: String
     -amigos: List~Amigo~
+    -eventos: List~Evento~
     +agregarAmigo(amigo: Amigo)
     +crearEvento(fecha: Date, lugar: String): Evento
 }
@@ -29,7 +30,7 @@ class Evento {
     +agregarParticipante(amigo: Amigo)
 }
 
-Grupo "1" -- "0.." Amigo
-Grupo "1" o-- "0..*" Instrumento
-Evento "0.." -- "0.." Amigo
-Amigo "0.." -- "0.." Instrumento
+Grupo "1" -- "0..*" Amigo
+Grupo "1" -- "0..*" Evento
+Evento "1" -- "0..*" Amigo
+Amigo "1" -- "0..*" Instrumento
