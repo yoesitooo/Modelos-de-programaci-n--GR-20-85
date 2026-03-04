@@ -1,0 +1,35 @@
+classDiagram
+
+class Grupo {
+    -nombre: String
+    -amigos: List~Amigo~
+    +agregarAmigo(amigo: Amigo)
+    +crearEvento(fecha: Date, lugar: String): Evento
+}
+
+class Amigo {
+    -nombre: String
+    -instrumentos: List~Instrumento~
+    -instrumentoPrincipal: Instrumento
+    -probabilidadAsistir: double
+    +agregarInstrumento(instrumento: Instrumento)
+    +setInstrumentoPrincipal(instrumento: Instrumento)
+    +decidirAsistencia(): boolean
+}
+
+class Instrumento {
+    -nombre: String
+    -tipo: String
+}
+
+class Evento {
+    -fecha: Date
+    -lugar: String
+    -participantes: List~Amigo~
+    +agregarParticipante(amigo: Amigo)
+}
+
+Grupo "1" -- "0.." Amigo
+Grupo "1" o-- "0..*" Instrumento
+Evento "0.." -- "0.." Amigo
+Amigo "0.." -- "0.." Instrumento
