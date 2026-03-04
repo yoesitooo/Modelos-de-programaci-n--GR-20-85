@@ -1,1 +1,1 @@
-# Modelos-de-programaci-n--GR-20-85
+# Modelos-de-programacion--GR-20-85
